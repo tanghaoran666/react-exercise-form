@@ -10,6 +10,7 @@ class MyProfile extends Component {
   }
   
   handleChange= (event) => {
+    console.log('change');
     this.setState(
       {[event.target.name] : event.target.value}
       )
@@ -25,19 +26,20 @@ class MyProfile extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Name:
+          Name:<br />
           <input type="text" name="name" onChange={this.handleChange} value={this.state.name} />
         </label>
         <br />
         <label>
-          Gender:
+          Gender:<br />
           <select name="gender" value={this.state.gender} onChange={this.handleChange} >
             <option value='male'>Male</option>
             <option value='female'>Female</option>
           </select>
         </label>
         <br />
-        <label>
+        <label className='gender'>
+        Description:<br />
           <textarea name="descriptions" value={this.state.descriptions} onChange={this.handleChange}>Description yourself</textarea>
         </label>
         <br />
